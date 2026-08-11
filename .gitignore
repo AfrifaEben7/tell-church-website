@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.astro/
+.DS_Store
+._*
+
+# Local planning and preview files
+.impeccable/
+assets/
+DESIGN.md
+PRODUCT.md
