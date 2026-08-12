@@ -1,22 +1,17 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import "../styles/pastor-preview.css";
+import church from "../content/church.json";
+import homepage from "../content/homepage.json";
 
 const base = import.meta.env.BASE_URL;
+const asset = (path: string) => `${base}${path.startsWith("/") ? path : `/${path}`}`;
 const homeUrl = `${base}/`;
 const giveUrl = `${base}/give/`;
-const mapUrl = "https://www.google.com/maps/search/?api=1&query=330+E+Anamosa+St+Rapid+City+SD+57701";
-
-const nextSteps = [
-  { title: "Plan a Visit", text: "We can’t wait to meet you.", icon: "people" },
-  { title: "Grow in Faith", text: "Explore classes and groups.", icon: "leaf" },
-  { title: "Get Connected", text: "Find your people.", icon: "heart" },
-  { title: "Make a Difference", text: "Serve in your community.", icon: "hand" }
-];
 ---
 
 <BaseLayout
-  title="TELL Church | Pastor Preview"
+  title={`${church.name} | Alternate Homepage`}
   description="An alternate homepage concept for TELL Church in Rapid City, South Dakota."
   bodyClass="concept-body"
 >
@@ -29,7 +24,7 @@ const nextSteps = [
 
   <header class="concept-header" data-concept-header>
     <a class="concept-logo" href={homeUrl} aria-label="TELL Church home">
-      <img src={`${base}/images/tell-church-logo.png`} alt="TELL Church" width="150" height="96" />
+      <img src={asset(church.logo)} alt={church.name} width="150" height="96" />
     </a>
     <button class="concept-menu" type="button" aria-expanded="false" aria-controls="concept-nav">
       <span class="sr-only">Open navigation</span>
@@ -48,7 +43,7 @@ const nextSteps = [
   <main id="concept-main">
     <section class="concept-hero" aria-labelledby="concept-title">
       <img
-        src={`${base}/images/hero-worship.png`}
+        src={asset(church.heroImage)}
         alt="A multicultural congregation worshiping together"
         width="2048"
         height="1152"
@@ -56,9 +51,9 @@ const nextSteps = [
       />
       <div class="concept-hero__shade"></div>
       <div class="concept-hero__content">
-        <h1 id="concept-title">Welcome Home</h1>
-        <p class="concept-hero__lead">There’s a place for you here.</p>
-        <p>Come for the Word. Lift your voice in worship.<br />Find warmth in community.</p>
+        <h1 id="concept-title">{homepage.heroTitle}</h1>
+        <p class="concept-hero__lead">{homepage.heroLead}</p>
+        <p>{homepage.heroBody}</p>
         <div class="concept-actions">
           <a class="concept-button concept-button--solid" href="#sunday">Plan a Visit</a>
           <a class="concept-button concept-button--outline" href="#latest-message">Watch Online</a>
@@ -67,30 +62,27 @@ const nextSteps = [
     </section>
 
     <section id="sunday" class="sunday-rail" aria-label="Sunday information">
-      <p class="sunday-rail__motto">Word.<br />Worship.<br />Warmth.</p>
+      <p class="sunday-rail__motto">{church.slogan.split(" ").map((word) => <>{word}<br /></>)}</p>
       <div class="sunday-rail__title">
         <span class="rail-icon" aria-hidden="true">▦</span>
         <strong>Sundays<br />at TELL</strong>
       </div>
       <div class="sunday-rail__times">
-        <p><span aria-hidden="true">◷</span><strong>11:30 AM</strong> — Fellowship &amp; Sunday School</p>
-        <p><span aria-hidden="true">◷</span><strong>12:30 PM</strong> — Worship Service</p>
+        <p><span aria-hidden="true">◷</span><strong>{church.fellowshipTime}</strong> — {church.fellowshipLabel}</p>
+        <p><span aria-hidden="true">◷</span><strong>{church.worshipTime}</strong> — {church.worshipLabel}</p>
       </div>
-      <a class="sunday-rail__place" href={mapUrl} target="_blank" rel="noreferrer">
+      <a class="sunday-rail__place" href={church.mapUrl} target="_blank" rel="noreferrer">
         <span aria-hidden="true">⌖</span>
-        <strong>330 E. Anamosa St. · Rapid City, SD</strong>
+        <strong>{church.street} · {church.city}</strong>
       </a>
     </section>
 
     <section id="welcome" class="concept-welcome">
       <div>
-        <h2>You belong here.</h2>
-        <p>
-          TELL Church is a joyful, multicultural family growing through Scripture, worship, and
-          life together. Come as you are and take your next step with Jesus.
-        </p>
+        <h2>{homepage.welcomeTitle}</h2>
+        <p>{homepage.welcomeShortBody}</p>
       </div>
-      <blockquote>“Word that shapes us. Worship that lifts us. Warmth that welcomes us.”</blockquote>
+      <blockquote>“{homepage.welcomeQuote}”</blockquote>
     </section>
 
     <section class="concept-lower">
@@ -98,16 +90,16 @@ const nextSteps = [
         <h2>Latest Message</h2>
         <div class="latest-message__body">
           <img
-            src={`${base}/images/latest-message.png`}
+            src={asset(church.messageImage)}
             alt="A pastor sharing a message from the stage"
             width="800"
             height="450"
             loading="lazy"
           />
           <div>
-            <h3>Living with Purpose</h3>
-            <p>A study in Ephesians 2:10</p>
-            <span>Message library coming soon</span>
+            <h3>{homepage.messageTitle}</h3>
+            <p>{homepage.messageSubtitle}</p>
+            <span>{homepage.messageStatus}</span>
           </div>
         </div>
       </article>
@@ -115,7 +107,7 @@ const nextSteps = [
       <section id="next-steps" class="next-steps" aria-labelledby="next-title">
         <h2 id="next-title">Take Your Next Step</h2>
         <div class="next-steps__list">
-          {nextSteps.map((step) => (
+          {homepage.nextSteps.map((step) => (
             <article>
               <span class={`step-icon step-icon--${step.icon}`} aria-hidden="true"></span>
               <div>
@@ -130,16 +122,16 @@ const nextSteps = [
 
     <section class="concept-visit">
       <div>
-        <h2>Join us this Sunday.</h2>
-        <p>Fellowship begins at 11:30 AM. Worship begins at 12:30 PM.</p>
+        <h2>{homepage.alternateVisitTitle}</h2>
+        <p>Fellowship begins at {church.fellowshipTime}. Worship begins at {church.worshipTime}.</p>
       </div>
-      <a class="concept-button concept-button--solid" href={mapUrl} target="_blank" rel="noreferrer">Get Directions</a>
+      <a class="concept-button concept-button--solid" href={church.mapUrl} target="_blank" rel="noreferrer">Get Directions</a>
     </section>
   </main>
 
   <footer class="concept-footer">
-    <img src={`${base}/images/tell-church-logo.png`} alt="TELL Church" width="130" height="82" loading="lazy" />
-    <p>330 E. Anamosa St. · Rapid City, SD 57701</p>
+    <img src={asset(church.logo)} alt={church.name} width="130" height="82" loading="lazy" />
+    <p>{church.street} · {church.city}</p>
     <a href={giveUrl}>Giving page preview</a>
   </footer>
 

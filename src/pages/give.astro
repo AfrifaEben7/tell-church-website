@@ -1,8 +1,11 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import "../styles/give.css";
+import church from "../content/church.json";
+import giving from "../content/giving.json";
 
 const base = import.meta.env.BASE_URL;
+const asset = (path: string) => `${base}${path.startsWith("/") ? path : `/${path}`}`;
 const homeUrl = `${base}/`;
 const previewUrl = `${base}/pastor-preview/`;
 ---
@@ -15,13 +18,13 @@ const previewUrl = `${base}/pastor-preview/`;
   <a class="skip-link" href="#give-main">Skip to main content</a>
 
   <div class="give-preview-note">
-    <span>Payments are not active</span>
+    <span>{giving.paymentsActive ? "Online giving is active" : "Payments are not active"}</span>
     <a href={previewUrl}>View alternate homepage</a>
   </div>
 
   <header class="give-header">
     <a href={homeUrl} aria-label="TELL Church home">
-      <img src={`${base}/images/tell-church-logo.png`} alt="TELL Church" width="150" height="96" />
+      <img src={asset(church.logo)} alt={church.name} width="150" height="96" />
     </a>
     <nav aria-label="Giving page navigation">
       <a href={homeUrl}>Home</a>
@@ -34,30 +37,31 @@ const previewUrl = `${base}/pastor-preview/`;
     <section class="give-hero">
       <div class="give-hero__copy">
         <p class="give-kicker">Generosity at TELL</p>
-        <h1>Give with purpose.</h1>
-        <p>
-          Your generosity supports worship, discipleship, youth ministry, outreach, and the work of
-          sharing the hope of Jesus in Rapid City.
-        </p>
+        <h1>{giving.heroTitle}</h1>
+        <p>{giving.heroBody}</p>
       </div>
       <aside class="give-launch" aria-labelledby="launch-title">
-        <span class="give-launch__status">Online giving setup in progress</span>
-        <h2 id="launch-title">A simple, secure way to give.</h2>
-        <p>Planned payment options include Apple Pay, Google Pay, card, and bank transfer.</p>
-        <span class="give-launch__button" aria-disabled="true">Online giving opens after approval</span>
-        <small>No payment information is collected on this preview.</small>
+        <span class="give-launch__status">{giving.status}</span>
+        <h2 id="launch-title">{giving.cardTitle}</h2>
+        <p>{giving.cardBody}</p>
+        {giving.paymentsActive && giving.givingUrl ? (
+          <a class="give-launch__button" href={giving.givingUrl} target="_blank" rel="noreferrer">{giving.buttonLabel}</a>
+        ) : (
+          <span class="give-launch__button" aria-disabled="true">{giving.buttonLabel}</span>
+        )}
+        <small>{giving.safetyNote}</small>
       </aside>
     </section>
 
     <section class="give-scripture" aria-label="Giving statement">
-      <p>“Each of you should give what you have decided in your heart to give.”</p>
-      <cite>2 Corinthians 9:7</cite>
+      <p>“{giving.scripture}”</p>
+      <cite>{giving.scriptureReference}</cite>
     </section>
 
     <section id="ways" class="ways-to-give" aria-labelledby="ways-title">
       <div class="ways-to-give__intro">
         <h2 id="ways-title">Ways to give</h2>
-        <p>Choose the option that works best for you. Every gift is handled with care and accountability.</p>
+        <p>{giving.waysIntro}</p>
       </div>
 
       <div class="giving-methods">
@@ -65,7 +69,7 @@ const previewUrl = `${base}/pastor-preview/`;
           <span class="method-number">01</span>
           <div>
             <h3>Give online</h3>
-            <p>Make a one-time or recurring gift through our secure giving partner once setup is complete.</p>
+            <p>{giving.onlineText}</p>
             <ul>
               <li>Apple Pay and Google Pay</li>
               <li>Credit or debit card</li>
@@ -77,21 +81,21 @@ const previewUrl = `${base}/pastor-preview/`;
           <span class="method-number">02</span>
           <div>
             <h3>Give in person</h3>
-            <p>Give during Sunday worship using the designated giving box. Checks may be made payable to TELL Church.</p>
+            <p>{giving.inPersonText}</p>
           </div>
         </article>
         <article>
           <span class="method-number">03</span>
           <div>
             <h3>Give by mail</h3>
-            <address>TELL Church<br />330 E. Anamosa St.<br />Rapid City, SD 57701</address>
+            <address>{church.name}<br />{church.street}<br />{church.city}</address>
           </div>
         </article>
         <article>
           <span class="method-number">04</span>
           <div>
             <h3>Other gifts</h3>
-            <p>For stock, planned giving, or other non-cash gifts, contact the church office before sending funds.</p>
+            <p>{giving.otherText}</p>
           </div>
         </article>
       </div>
@@ -99,15 +103,15 @@ const previewUrl = `${base}/pastor-preview/`;
 
     <section id="questions" class="give-help">
       <div>
-        <h2>Questions about giving?</h2>
-        <p>Church contact information will be added here before online giving launches.</p>
+        <h2>{giving.helpTitle}</h2>
+        <p>{giving.helpText}</p>
       </div>
       <a href={homeUrl}>Return to TELL Church</a>
     </section>
   </main>
 
   <footer class="give-footer">
-    <p>© {new Date().getFullYear()} TELL Church</p>
-    <p>Word. Worship. Warmth.</p>
+    <p>© {new Date().getFullYear()} {church.name}</p>
+    <p>{church.slogan}</p>
   </footer>
 </BaseLayout>

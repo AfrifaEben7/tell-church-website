@@ -1,0 +1,14 @@
+{
+  "name": "TELL Church",
+  "street": "330 E. Anamosa St.",
+  "city": "Rapid City, SD 57701",
+  "mapUrl": "https://www.google.com/maps/search/?api=1&query=330+E+Anamosa+St+Rapid+City+SD+57701",
+  "slogan": "Word. Worship. Warmth.",
+  "fellowshipTime": "11:30 AM",
+  "fellowshipLabel": "Fellowship & Sunday School",
+  "worshipTime": "12:30 PM",
+  "worshipLabel": "Worship Service",
+  "logo": "/images/tell-church-logo.png",
+  "heroImage": "/images/hero-worship.png",
+  "messageImage": "/images/latest-message.png"
+}

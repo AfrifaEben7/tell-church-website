@@ -1,0 +1,106 @@
+backend:
+  name: github
+  repo: AfrifaEben7/tell-church-website
+  branch: main
+  auth_methods:
+    - token
+
+site_url: https://afrifaeben7.github.io/tell-church-website/
+display_url: https://afrifaeben7.github.io/tell-church-website/
+logo_url: https://afrifaeben7.github.io/tell-church-website/images/tell-church-logo.png
+media_folder: public/images/uploads
+public_folder: /images/uploads
+
+collections:
+  - name: website
+    label: Website Content
+    files:
+      - name: church
+        label: Church Information
+        file: src/content/church.json
+        format: json
+        fields:
+          - { label: Church name, name: name, widget: string }
+          - { label: Street address, name: street, widget: string }
+          - { label: City, state and ZIP, name: city, widget: string }
+          - { label: Google Maps link, name: mapUrl, widget: string }
+          - { label: Slogan, name: slogan, widget: string }
+          - { label: Fellowship time, name: fellowshipTime, widget: string }
+          - { label: Fellowship label, name: fellowshipLabel, widget: string }
+          - { label: Worship time, name: worshipTime, widget: string }
+          - { label: Worship label, name: worshipLabel, widget: string }
+          - { label: Church logo, name: logo, widget: image }
+          - { label: Homepage worship photo, name: heroImage, widget: image }
+          - { label: Latest message photo, name: messageImage, widget: image }
+
+      - name: homepage
+        label: Homepage Content
+        file: src/content/homepage.json
+        format: json
+        fields:
+          - { label: Hero heading, name: heroTitle, widget: string }
+          - { label: Alternate homepage hero lead, name: heroLead, widget: string }
+          - { label: Alternate homepage hero text, name: heroBody, widget: text }
+          - { label: Current homepage hero lead, name: currentHeroLead, widget: string }
+          - { label: Welcome heading, name: welcomeTitle, widget: string }
+          - { label: Current homepage welcome text, name: welcomeBody, widget: text }
+          - { label: Alternate homepage welcome text, name: welcomeShortBody, widget: text }
+          - { label: Welcome quote, name: welcomeQuote, widget: text }
+          - { label: Latest message title, name: messageTitle, widget: string }
+          - { label: Latest message subtitle, name: messageSubtitle, widget: string }
+          - { label: Latest message status, name: messageStatus, widget: string }
+          - { label: Current homepage message heading, name: currentMessageTitle, widget: string }
+          - { label: Current homepage message text, name: currentMessageBody, widget: text }
+          - { label: Message photo caption, name: messageCaption, widget: string }
+          - { label: About introduction, name: aboutLead, widget: text }
+          - { label: About text, name: aboutBody, widget: text }
+          - { label: Ministries heading, name: ministriesTitle, widget: string }
+          - { label: Ministries introduction, name: ministriesBody, widget: text }
+          - label: Ministries
+            name: ministries
+            widget: list
+            summary: "{{fields.name}}"
+            fields:
+              - { label: Ministry name, name: name, widget: string }
+              - { label: Description, name: description, widget: text }
+          - label: Next steps
+            name: nextSteps
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Description, name: text, widget: string }
+              - label: Icon
+                name: icon
+                widget: select
+                options:
+                  - { label: People, value: people }
+                  - { label: Leaf, value: leaf }
+                  - { label: Heart, value: heart }
+                  - { label: Hand, value: hand }
+          - { label: Current homepage visit heading, name: visitTitle, widget: string }
+          - { label: Visit text, name: visitBody, widget: text }
+          - { label: Alternate homepage visit heading, name: alternateVisitTitle, widget: string }
+
+      - name: giving
+        label: Giving Page
+        file: src/content/giving.json
+        format: json
+        fields:
+          - { label: Online payments active, name: paymentsActive, widget: boolean, default: false }
+          - { label: Secure giving link, name: givingUrl, widget: string, required: false }
+          - { label: Giving status, name: status, widget: string }
+          - { label: Page heading, name: heroTitle, widget: string }
+          - { label: Introduction, name: heroBody, widget: text }
+          - { label: Giving card heading, name: cardTitle, widget: string }
+          - { label: Giving card text, name: cardBody, widget: text }
+          - { label: Giving button label, name: buttonLabel, widget: string }
+          - { label: Safety note, name: safetyNote, widget: string }
+          - { label: Scripture, name: scripture, widget: text }
+          - { label: Scripture reference, name: scriptureReference, widget: string }
+          - { label: Ways to give introduction, name: waysIntro, widget: text }
+          - { label: Online giving text, name: onlineText, widget: text }
+          - { label: In-person giving text, name: inPersonText, widget: text }
+          - { label: Other gifts text, name: otherText, widget: text }
+          - { label: Help heading, name: helpTitle, widget: string }
+          - { label: Help text, name: helpText, widget: text }

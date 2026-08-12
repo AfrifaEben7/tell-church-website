@@ -1,0 +1,19 @@
+{
+  "paymentsActive": false,
+  "givingUrl": "",
+  "status": "Online giving setup in progress",
+  "heroTitle": "Give with purpose.",
+  "heroBody": "Your generosity supports worship, discipleship, youth ministry, outreach, and the work of sharing the hope of Jesus in Rapid City.",
+  "cardTitle": "A simple, secure way to give.",
+  "cardBody": "Planned payment options include Apple Pay, Google Pay, card, and bank transfer.",
+  "buttonLabel": "Online giving opens after approval",
+  "safetyNote": "No payment information is collected on this preview.",
+  "scripture": "Each of you should give what you have decided in your heart to give.",
+  "scriptureReference": "2 Corinthians 9:7",
+  "waysIntro": "Choose the option that works best for you. Every gift is handled with care and accountability.",
+  "onlineText": "Make a one-time or recurring gift through our secure giving partner once setup is complete.",
+  "inPersonText": "Give during Sunday worship using the designated giving box. Checks may be made payable to TELL Church.",
+  "otherText": "For stock, planned giving, or other non-cash gifts, contact the church office before sending funds.",
+  "helpTitle": "Questions about giving?",
+  "helpText": "Church contact information will be added here before online giving launches."
+}

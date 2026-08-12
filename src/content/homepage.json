@@ -1,0 +1,63 @@
+{
+  "heroTitle": "Welcome Home",
+  "heroLead": "There’s a place for you here.",
+  "heroBody": "Come for the Word. Lift your voice in worship. Find warmth in community.",
+  "currentHeroLead": "Sundays in Rapid City",
+  "welcomeTitle": "You belong here.",
+  "welcomeBody": "Whether you have followed Jesus for years, have questions about faith, or are simply looking for a church to call home, there is a place for you at TELL Church.",
+  "welcomeShortBody": "TELL Church is a joyful, multicultural family growing through Scripture, worship, and life together. Come as you are and take your next step with Jesus.",
+  "welcomeQuote": "Word that shapes us. Worship that lifts us. Warmth that welcomes us.",
+  "messageTitle": "Living with Purpose",
+  "messageSubtitle": "A study in Ephesians 2:10",
+  "messageStatus": "Message library coming soon",
+  "currentMessageTitle": "A faith you can live.",
+  "currentMessageBody": "Biblical teaching for everyday life—clear, hopeful, and centered on Jesus. Our online sermon library is being prepared and will be connected here soon.",
+  "messageCaption": "Teaching rooted in Scripture and made for real life.",
+  "aboutLead": "Come encounter God’s Word, worship with freedom, and find a community that feels like family.",
+  "aboutBody": "We are a joyful, multicultural church where every generation can grow in faith, discover purpose, and take a next step with Jesus.",
+  "ministriesTitle": "There is room for every generation.",
+  "ministriesBody": "Faith grows through people who know your name, pray with you, and walk beside you.",
+  "ministries": [
+    {
+      "name": "Children",
+      "description": "A safe, joyful place where children learn the Bible and know they are loved."
+    },
+    {
+      "name": "Youth",
+      "description": "Honest faith, strong friendships, and room for the next generation to lead."
+    },
+    {
+      "name": "Adults",
+      "description": "Grow through Scripture, prayer, fellowship, and meaningful relationships."
+    },
+    {
+      "name": "Outreach",
+      "description": "Put faith into action by serving our neighbors in Rapid City and beyond."
+    }
+  ],
+  "nextSteps": [
+    {
+      "title": "Plan a Visit",
+      "text": "We can’t wait to meet you.",
+      "icon": "people"
+    },
+    {
+      "title": "Grow in Faith",
+      "text": "Explore classes and groups.",
+      "icon": "leaf"
+    },
+    {
+      "title": "Get Connected",
+      "text": "Find your people.",
+      "icon": "heart"
+    },
+    {
+      "title": "Make a Difference",
+      "text": "Serve in your community.",
+      "icon": "hand"
+    }
+  ],
+  "visitTitle": "Your seat is waiting.",
+  "visitBody": "Start with fellowship and Sunday School at 11:30 AM, then stay for worship at 12:30 PM. Come as you are—we would love to meet you.",
+  "alternateVisitTitle": "Join us this Sunday."
+}
