@@ -29,26 +29,26 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 6rem;
-  padding: 0.25rem clamp(1rem, 5vw, 5rem);
+  min-height: 4.25rem;
+  padding: 0.15rem clamp(1rem, 5vw, 5rem);
   background: #fff;
 }
 
 .concept-logo {
   display: grid;
   place-items: center;
-  width: 8rem;
+  width: 5.25rem;
 }
 
 .concept-logo img {
-  width: 7.5rem;
+  width: 5rem;
   height: auto;
 }
 
 .concept-nav {
   display: flex;
   align-items: center;
-  gap: clamp(1rem, 2.6vw, 2.8rem);
+  gap: clamp(1rem, 2.2vw, 2.25rem);
   font-weight: 700;
 }
 
@@ -64,7 +64,7 @@
 }
 
 .concept-give {
-  min-width: 8.75rem;
+  min-width: 6.75rem;
   justify-content: center;
   background: #008f87;
   color: #fff;
