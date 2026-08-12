@@ -275,8 +275,9 @@
 
 .concept-lower {
   display: grid;
-  grid-template-columns: minmax(20rem, 0.75fr) minmax(38rem, 1.25fr);
+  grid-template-columns: minmax(22rem, 0.8fr) minmax(36rem, 1.2fr);
   gap: 1rem;
+  align-items: start;
   padding: 0 clamp(1.25rem, 5vw, 5rem) clamp(4rem, 8vw, 7rem);
 }
 
@@ -316,8 +317,9 @@
 
 .latest-message__body img {
   width: 100%;
-  aspect-ratio: 16 / 10;
+  height: clamp(12rem, 16vw, 15rem);
   object-fit: cover;
+  object-position: center 35%;
   border-radius: 8px;
 }
 
@@ -342,14 +344,18 @@
 
 .next-steps__list {
   display: grid;
-  grid-template-columns: repeat(4, minmax(8rem, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(2, minmax(14rem, 1fr));
+  column-gap: clamp(1.5rem, 4vw, 3rem);
 }
 
 .next-steps__list article {
-  display: flex;
+  display: grid;
+  grid-template-columns: 3.75rem minmax(0, 1fr);
   align-items: center;
-  gap: 0.8rem;
+  gap: 1rem;
+  min-height: 8rem;
+  padding-block: 1.25rem;
+  border-top: 1px solid rgba(0, 107, 101, 0.28);
 }
 
 .step-icon {
@@ -381,8 +387,8 @@
 }
 
 .next-steps h3 {
-  margin-bottom: 0.2rem;
-  font-size: 1rem;
+  margin-bottom: 0.35rem;
+  font-size: 1.2rem;
   line-height: 1.1;
   letter-spacing: -0.01em;
 }
@@ -390,8 +396,8 @@
 .next-steps p {
   margin: 0;
   color: #31524f;
-  font-size: 0.85rem;
-  line-height: 1.35;
+  font-size: 0.95rem;
+  line-height: 1.45;
 }
 
 .concept-visit {
@@ -569,6 +575,11 @@
   .latest-message__body,
   .next-steps__list {
     grid-template-columns: 1fr;
+  }
+
+  .latest-message__body img {
+    height: auto;
+    aspect-ratio: 16 / 10;
   }
 
   .concept-visit,
